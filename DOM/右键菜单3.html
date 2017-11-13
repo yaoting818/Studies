@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>右键菜单3</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        #menu{
+            width: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+        #menu li{
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            color: #ee55dd;
+            background-color: #cccccc;
+            border-bottom: 1px #ccffcc solid;
+            cursor: pointer;
+        }
+        #menu li:hover{
+            background-color: #ccffcc;
+        }
+    </style>
+</head>
+<body>
+<div id="menu">
+    <ul>
+        <li>001</li>
+        <li>002</li>
+        <li>003</li>
+        <li>004</li>
+        <li>005</li>
+        <li>006</li>
+        <li>007</li>
+        <li>008</li>
+        <li>009</li>
+        <li>010</li>
+        <li>011</li>
+        <li>012</li>
+    </ul>
+
+</div>
+
+<script>
+    var oMenu = document.getElementById('menu');
+    var aLi = oMenu.getElementsByTagName('li');
+    document.oncontextmenu = function(e){
+        e = e||window.envent;
+        oMenu.style.display = "block";
+        oMenu.style.top = e.clientY + "px";
+        oMenu.style.left = e.clientX + "px";
+        return false;
+    };
+    document.onclick = function(){
+      oMenu.style.display = "none";
+    };
+    for(i=0;i<=aLi.length;i++)
+    {
+        aLi[i].onclick = function(){
+            confirm(this.innerHTML);
+        };
+    }
+
+</script>
+</body>
+</html>

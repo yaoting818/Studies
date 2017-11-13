@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>five-circles</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            position: relative;
+            /*background: #00ccff;*/
+            /*top: 100px;*/
+        }
+        div, div::after{
+            width: 300px;
+            height: 300px;
+            /*float: left;*/
+            /*padding: 20px;*/
+            /*margin-left: 5px;*/
+            border-radius: 160px;
+            border: 10px solid #000;   /* 149-->148.2 150~159 ---> -0.6 ???  */
+            position: absolute;
+        }
+        div::after{
+            content: '';
+            top: -10px;
+            left: -10px;
+        }
+        .one{
+            border-color: #ff0000;
+        }
+        .one::after{
+            border-color: #ff0000;
+            z-index: 1;
+            border-bottom-color: transparent;
+
+        }
+        .two{
+            border-color: #00b514;
+            top: 0;
+            left: 330px;
+        }
+        .two::after{
+            border-color: #00b514;
+            z-index: 1;
+            border-left-color: transparent;
+        }
+        .three{
+            border-color: #00ccff;
+            left: 660px;
+        }
+        .three::after{
+            border-color: #00ccff;
+            z-index: 3;
+            border-left-color: transparent;
+        }
+        .four{
+            border-color: #ee55dd;
+            top: 160px;
+            left: 160px;
+        }
+        .four::after{
+            border-color: #ee55dd;
+        }
+        .five{
+            border-color: #8a2be2;
+            top: 160px;
+            left: 490px;
+        }
+        .five::after{
+            border-color: #8a2be2;
+            z-index: 2;
+            border-top-color: transparent;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="one ">
+    </div>
+    <div class="two">
+    </div>
+    <div class="three">
+    </div>
+    <div class="four">
+    </div>
+    <div class="five">
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+#btn{
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    cursor: pointer;
+    background: #00ccff;
+    color: #ff0000;
+}

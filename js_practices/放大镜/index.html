@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>放大镜</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #small, #big{
+            float: left;
+        }
+        #big{
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+            display: none;
+        }
+        #small{
+            position: relative;
+        }
+        #drag{
+            width: 200px;
+            height: 200px;
+            background: #c3c3c3;
+            opacity: .5;
+            filter:alpha(Opacity=50);
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="small">
+        <img id="img1" src="1.jpg" alt=""/>
+        <div id="drag"></div>
+    </div>
+    <div id="big">
+        <img id="img2" src="2.jpg" alt=""/>
+    </div>
+</body>
+<script>
+
+</script>
+</html>

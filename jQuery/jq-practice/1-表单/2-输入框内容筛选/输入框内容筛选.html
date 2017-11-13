@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>练习1</title>
+</head>
+<body>
+     输入：<input id="search" type="text"/>
+     <ul id="result">
+         <li>iPhone</li>
+         <li>huaWei</li>
+         <li>xiaoMi</li>
+     </ul>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $(function(){
+        $("#search").on("keyup",function(){
+           // console.log($(this).val());
+            $("#result li").css("background","transparent");
+
+            if($(this).val() != ""){
+
+                $("#result li:contains(" + $(this).val().toLowerCase()+ ")").css("background","red");
+            }
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>move</title>
+    <style>
+        *{
+            margin:0;
+        }
+        #div{
+            width: 300px;
+            height: 300px;
+            background-color: #33dd33;
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+        #div2{
+            width: 50px;
+            height: 50px;
+            background-color: #000000;
+            position: relative;
+            top: 0px;
+            left: 350px;
+        }
+    </style>
+</head>
+<body>
+    <button id="button">move</button>
+    <div id="div"></div>
+    <div id="div2"></div>
+</body>
+<script>
+    var oButton = document.getElementById("button");
+    var oDiv = document.getElementById("div");
+    var oDiv2 = document.getElementById("div2");
+    oButton.onclick = function(){
+        var timer = setInterval(function(){
+            oDiv.style.left = oDiv.offsetLeft + 10 + "px";
+            oDiv2.style.left = oDiv2.offsetLeft + 10 + "px";
+            //oDiv.styles.top = oDiv.offsetTop + 10 + "px";
+            if(oDiv.offsetLeft >= 300){
+                oDiv.style.left = 0;
+                oDiv2.style.left = 0;
+               // oDiv.styles.top = 0;
+                clearInterval(timer);
+            }
+        },100);
+    };
+</script>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="utf-8" />
+    <title>border-radius_CSS参考手册_web前端开发参考手册系列</title>
+    <meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com, www.doyoe.com" />
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 2000px;
+
+        }
+        div{
+            width: 400px;
+            height: 400px;
+            background: #000;
+        }
+        #div1{
+            position: relative;
+            top: 100px;
+            left: 200px;
+        }
+        #div2{
+            /*border-radius: 100px;*/
+                /*border-radius: 50px 100px;*/
+            /*border-radius: 50px 100px 150px;*/
+
+            border-radius: 100px/200px;
+            /*border-radius:  50px/100px 200px;*/
+            /*border-radius: 100px 200px/100px 200px;*/
+            /*border-radius: 50px 100px 150px/50px 100px 150px;*/
+            background: #ff0000;
+            position: absolute;
+            border: 5px solid #00ccff;
+
+        }
+        /*#div3{*/
+            /*border-radius: 50px 100px 150px;*/
+        /*}*/
+    </style>
+</head>
+<body>
+    <div id="div1"><div id="div2"></div></div>
+
+    <!--<div id="div3"></div>-->
+</body>
+</html>

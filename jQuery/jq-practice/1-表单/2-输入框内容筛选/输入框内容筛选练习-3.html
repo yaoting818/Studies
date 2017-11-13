@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>练习3</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        #container{
+            /*background: #cc33cc;*/
+            width: 400px;
+            height: 300px;
+            position: relative;
+            top: 100px;
+            left: 500px;
+        }
+        #result li{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        输入：<input type="text" id="input"/>
+        <ul id="result">
+            <li>001</li>
+            <li>002</li>
+            <li>003</li>
+            <li>004</li>
+            <li>005</li>
+            <li>006</li>
+        </ul>
+    </div>
+
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $(function(){
+        $("#input").on("keyup",function(){
+            $("#result li").css("background","transparent");
+            $("#result li").css("display","none");
+            if($(this).val() != ""){
+                $("#result li:contains("+ $(this).val() + ")").css("background","#ccc").css("display","block");
+            }
+        });
+    });
+</script>
+</body>
+</html>

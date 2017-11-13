@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>title</title>
+
+</head>
+<body>
+<!--
+           文本框得到/失去焦点练习，功能：
+  1.文本框得到/失去焦点时动态变换文本框样式 
+  2.文本框得到时，清除文本框默认值；失去焦点时，如果文本框值未改变，恢复默认值，否则使用修改值  -->
+<form action="" id="form">
+    <fieldset form="form">
+        <legend>information</legend>
+        adress:<input type="text" value="xx省xx市"/><br/>
+        tel:<input type="text" value="123-456"/></br>
+        <button>on!</button>
+    </fieldset>
+</form>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $(function(){
+        var $inputs = $("input");
+        $inputs.focus(function(){
+            $(this).css("background","red");
+                if(this.value == this.defaultValue){
+                    $(this).val("");
+                }
+        }).blur(function(){
+            $(this).css("background","transparent");
+            if(this.value == ""){
+                this.value = this.defaultValue;
+            }
+        });
+    });
+
+</script>
+</body>
+</html>

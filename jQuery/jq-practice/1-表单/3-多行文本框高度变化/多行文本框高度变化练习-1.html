@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <style type="text/css">
+        * { margin:0; padding:0;font:normal 12px/17px Arial; }
+        .msg {width:300px; margin:100px; }
+        .msg_caption { width:100%; overflow:hidden; margin-bottom:1px;}
+        .msg_caption span { display:block; float:left; margin:0 2px; padding:4px 10px; background:#898989; cursor:pointer;color:white; }
+        .msg textarea{
+            width:300px;
+            height:50px;
+            resize: none;
+            border:1px solid #000;}
+    </style>
+</head>
+<body>
+<form action="" method="post">
+    <div class="msg">
+        <div class="msg_caption">
+            <span class="bigger" >放大</span>
+            <span class="smaller" >缩小</span>
+        </div>
+        <div>
+            <textarea id="comment" rows="8" cols="20">多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.</textarea>
+        </div>
+    </div>
+    <script src="   jquery-1.12.4.js"></script>
+    <script>
+        /*
+         文本框高度变化练习，功能：
+         1.完成点击放大按钮，文本域高度每次加50像素，直到500像素为止
+         2.完成点击缩小按钮，文本框高度每次减少50像素，直到50像素为止
+         3、加入缓冲动画效果，要求在0.4秒内完成动画效果
+         */
+        $(function(){
+            var $bigger = $(".bigger");
+            var $comment = $("#comment");
+            var $smaller = $(".smaller");
+            $bigger.on("click",function() {
+//                if($comment.height() < 450){
+//                    $comment.height($comment.height()+50);
+////                    $comment.css({height: $comment.height()+50});
+//                }
+                $comment.animate({height:500},400);  //动画效果
+            });
+            $smaller.on("click",function(){
+//                console.log($comment.height());
+//                if ($comment.height() > 100) {
+////                    $comment.height($comment.height() - 50);
+//                    $comment.css({height: $comment.height()- 50});
+//                }
+                $comment.animate({height:50},400);   //动画效果
+                 });
+
+        });
+    </script>
+</form>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>photo-show</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: url(img/bg.jpg);
+        }
+    </style>
+</head>
+<body>
+<div id="container"></div>
+<script>
+    (function(){
+        var ROW = 4, RANK = 6, NUM = 24;
+        var count = 0;
+        for(var i = 0; i<NUM; i++){
+            var oBig = new Image();
+            oBig.src = "img/" +(i+1)+".jpg";
+            oBig.onload = function(){
+                count = count + 1;
+                if(count === NUM){
+                    loadsuccess();
+                }
+            };
+            var oSmall = new Image();
+            oSmall.src = "img/thumbs/"+ (i+1) + ".jpg";
+            oSmall.onload = function(){
+              count = count+1;
+                if(count === NUM){
+                    loadsuccess();
+                }
+            };
+        }
+        function loadsuccess(){
+            console.log("loadsuccess!");
+        }
+        for(var i = 0; i< NUM; i++){
+            var oDiv =
+        }
+    })();
+</script>
+</body>
+</html>

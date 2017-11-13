@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>下拉框</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 300px;
+            height: 500px;
+            float: left;
+        }
+        span{
+            display: block;
+            margin: 2px 2px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+        <div>
+            <select multiple="multiple" name="left" id="select1" style="width: 300px;height: 300px; border: 1px solid #00ccff;">
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+            </select>
+            <div>
+                <span id="add" style="height: 50px; width: 200px; text-align: center; line-height: 50px; background: #c3c3c3; color: #ff0000;">
+                选中加入右框-->
+            </span>
+            <span id="add_all" style="height: 50px; width: 200px; text-align: center; line-height: 50px; background: #c3c3c3; color: #ff0000;">
+                所有加入右框==>
+            </span>
+            </div>
+
+        </div>
+        <div>
+            <select multiple="multiple" name="right" id="select2" style="width: 300px;height: 300px; border: 1px solid #00ccff;">
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+            </select>
+            <div>
+                <span id="remove" style=" height: 50px; width: 200px; text-align: center; line-height: 50px; background: #c3c3c3; color: #ff0000;">
+               <-- 选中移动到左框
+            </span>
+            <span id="remove_all" style="height: 50px; width: 200px; text-align: center; line-height: 50px; background: #c3c3c3; color: #ff0000;">
+                <==所有移动到左框
+            </span>
+            </div>
+
+        </div>
+        <script src="jquery-1.12.4.js"></script>
+        <script>
+            $(function(){
+                var $select1 = $("#select1");
+                var $select2 = $("#select2");
+                $("#add").on("click",function(){
+                    $("#select1 option:selected").appendTo("#select2");
+                });
+                $("#add_all").on("click",function(){
+                    $("#select1 option").appendTo("#select2");
+                });
+                $("#remove").on("click",function(){
+                    $("#select2 option:selected").appendTo("#select1");
+                });
+                $("#remove_all").on("click",function(){
+                    $("#select2 option").appendTo("#select1");
+                });
+                $select1.on("dblclick",function(e){
+                    if(this!= e.target){
+                        $(e.target).appendTo("#select2");
+                    }
+                });
+                $select2.on("dblclick",function(e){
+                    if(this!= e.target){
+                        $(e.target).appendTo("#select1");
+                    }
+                });
+            });
+
+        </script>
+</body>
+</html>

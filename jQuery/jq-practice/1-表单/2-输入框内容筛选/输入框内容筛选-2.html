@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>练习2</title>
+</head>
+<body>
+<form action="#">
+    <input id="search"  type="text"/>
+</form>
+<ul id="items">
+    <li>baidu</li>
+    <li>huacao</li>
+    <li>tupian</li>
+    <li>dahai</li>
+</ul>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $(function(){
+        $("#search").on("keyup",function(){
+            $("#items li").css("background","transparent");
+           if($(this).val() != "") {
+               $("#items li:contains("+ $(this).val() + ")").css("background","#00ccdd");
+           }
+
+        });
+    });
+</script>
+</body>
+</html>

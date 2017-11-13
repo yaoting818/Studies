@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>复选框</title>
+</head>
+<body>
+    <h1>你爱好的运动是？</h1>
+    <form action="">
+        <input type="checkbox" name="hobby">足球
+        <input type="checkbox" name="hobby">篮球
+        <input type="checkbox" name="hobby">排球
+        <input type="checkbox" name="hobby">乒乓球
+        <br>
+        <button type="button" id="check-all">全选</button>
+        <!--type="button" -&#45;&#45; 清除按钮的自动提交行为-->
+        <button type="button" id="check-no">全不选</button>
+        <button type="button" id="check-reverse">反选</button>
+    </form>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            var $cheall = $("#check-all");
+            var $cheno = $("#check-no");
+            var $cherev = $("#check-reverse");
+            var $inputs = $("input");
+            $cheall.on("click",function(){
+                $inputs.prop("checked","true");
+            });
+            var $none = $cheno.on("click",function(){
+                $inputs.removeProp("checked");
+//                $inputs.prop("checked","false");  // checked属性值特殊，只要存在就起作用，故要移除该属性时应用removeProp("checked");语句
+            });
+            $cherev.on("click",function(){
+                $inputs.each(function(){
+                    this.checked  = !this.checked;    // 状态对立语句
+                });
+            });
+        });
+
+    </script>
+</body>
+</html>

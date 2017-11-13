@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>title</title>
+</head>
+<body>
+<form action="#">
+    <fieldset style="width: 400px;">
+        <legend>personal-information</legend>
+        name: <input type="text"/> <br/>
+        school: <input type="text"/> <br/>
+        personal-introduction: <input type="text"/> <br/>
+    </fieldset>
+</form>
+
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $(function(){
+        $("input").on("keyup",function(){
+           $("input").css("background","transparent");
+            if($(this).val()!= ""){
+                $(this).css("background","red");
+            }
+        });
+
+
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>TWOLINE</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 300px;
+            height: 300px;
+            background: #000;
+            /*float: left;*/
+            /*position: absolute;*/
+            display: table-cell;
+
+        }
+        #div2{
+            /*width: 100%;*/
+            height: 300px;
+            background: #ff0000;
+            /*margin-left: 310px;*/
+            /*margin-top: -300px;*/
+            display: table-cell;
+        }
+        #container{
+            display: table;
+            width: 100%;
+        }
+
+        /*1\利用对已经固定元素设置浮动属性使其脱离文档流，
+           故而自适应的元素自动与其并排*/
+        /*2\对宽已经固定的元素设置绝对定位，
+          从而使其脱离文档流，原理与1类似*/
+        /*利用margin属性对自适应元素进行移动*/
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="div1">   </div>
+    <div id="div2">   </div>
+</div>
+
+</body>
+</html>

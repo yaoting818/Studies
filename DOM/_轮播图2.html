@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>轮播图2</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        img{
+            border: 0;
+        }
+        #container{
+            width: 400px;
+            height: 300px;
+            position: relative;
+            top: 100px;
+            left: 400px;
+        }
+        #pictures img{
+            width: 400px;
+            height: 300px;
+            display: none;
+        }
+        #pictures .selected{
+            display: block;
+            width: 400px;
+            height: 300px;
+        }
+        #left, #right{
+            position: absolute;
+            width: 30px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            cursor: pointer;
+            color: #33dd33;
+            background-color: #44eeff;
+        }
+        #left{
+            top: 150px;
+            left: 0;
+        }
+        #right{
+            top: 150px;
+            right: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="pictures">
+            <img  class="selected" src="img2/001.jpg" alt="Error!"/>
+            <img src="img2/002.jpg" alt="Error!"/>
+            <img src="img2/003.jpg" alt="Error!"/>
+            <img src="img2/004.jpg" alt="Error!"/>
+            <img src="img2/005.jpg" alt="Error!"/>
+            <img src="img2/006.jpg" alt="Error!"/>
+            <img src="img2/007.jpg" alt="Error!"/>
+        </div>
+        <div id="left">&lt;</div>
+        <div id="right">&gt;</div>
+    </div>
+
+<script>
+        var oContainer = document.getElementById("container");
+        var oImg = document.getElementById("pictures");
+        var aImg = oImg.getElementsByTagName("img");
+        var oLeft = document.getElementById("left");
+        var oRight = document.getElementById("right");
+        var nowIndex = 0;
+        var timer;
+        for(var i=0;i<aImg.length;i++)
+        {
+            aImg[i].index = i;
+
+        }
+        oLeft.onmouseout = oRight.onmouseout = function(){
+
+            clearInterval(timer);
+            this.style.backgroundColor = "#44eeff";
+        };
+        oLeft.onmouseover = oRight.onmouseover = function(){
+            play();
+            this.style.backgroundColor = "#000";
+        };
+        function play(){
+            timer = setInterval( function (){ChangeImg();},1000);
+        }
+        function ChangeImg(){
+            if(this == oLeft)
+            {
+                nowIndex--;
+                if(nowIndex == -1)
+                {
+                    nowIndex = aImg.length -1;
+                }
+            }
+            else
+            {
+                nowIndex++;
+                if(nowIndex == aImg.length)
+                {
+                    nowIndex = 0;
+                }
+            }
+            //
+            for(var i = 0;i<aImg.length; i++)
+            {
+                aImg[i].className = "";
+            }
+            aImg[nowIndex].className = "selected";
+        }
+
+</script>
+</body>
+</html>

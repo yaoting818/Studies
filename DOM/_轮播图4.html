@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>我的小店课例模型练习</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            background-color: #cccccc;
+            width: 402px;
+            height: 500px;
+            position: relative;
+            top: 50px;
+            left: 200px;
+            overflow: hidden;
+        }
+        #div-big{
+            width: 390px;
+            height: 390px;
+            background-color: #ee55dd;
+            padding: 5px;
+            border: #000000 1px solid;
+        }
+        #div-big div{
+            display: none;
+            color: #0000ff;
+            width: 390px;
+            height: 390px;
+            line-height: 390px;
+            text-align: center;
+            background-color: #ff0000;
+        }
+        #div-big .selected{
+            display: block;
+        }
+        #divs{
+            width: 800px;
+            height: 100px;
+
+        }
+        #divs div{
+            margin: 5px 5px;
+            width: 120px;
+            height: 80px;
+            line-height: 80px;
+            text-align: center;
+            border: 2px #ee55dd solid;   /* 下边框不见了？！---- 因为父元素空间不够了  */
+            float: left;
+            cursor: pointer;
+        }
+        #divs div.selected{
+            border: 3px #0011ff solid;
+        }
+        #divs #div1{
+            background-color: #ccffcc;
+        }
+        #divs #div2{background-color: #33dd33;}
+        #divs #div3{background-color: aqua;}
+        #divs #div4{  background-color: blueviolet;}
+        #container span{
+            position: absolute;
+            top: 180px;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: #000000;
+            color: #ffffff;
+            cursor: pointer;
+        }
+        #container #left{
+            left: 5px;
+        }
+        #container #right{
+            right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="div-big">
+            <div class="selected">img1</div>
+            <div>img2</div>
+            <div>img3</div>
+            <div>img4</div>
+        </div>
+        <div id="divs">
+            <div id="div1" class="selected">img1</div>
+            <div id="div2">img2</div>
+            <div id="div3">img3</div>
+            <div id="div4">img4</div>
+        </div>
+        <span id="left">&lt;</span>
+        <span id="right">&gt;</span>
+    </div>
+    <script>
+        var oContainer = document.getElementById("container");
+        var oDiv_big = document.getElementById("div_big");
+        var oDivs = document.getElementById("divs");
+        var aDiv_big = oDiv_big.getElementsByTagName("div");
+        var aDiv = oDivs.getElementsByTagName("div");
+        var oLeft = document.getElementById("left");
+        var oRight = document.getElementById("right");
+        var nowIndex = 0;
+        for(var i=0;i<aDiv.length;i++){
+            aDiv[i].index = i;
+            aDiv[i].onclick = function(){
+                nowIndex = this.index;
+
+            };
+            ChangeGrame();
+        }
+        function ChangeGrame(){
+            for(var i=0;i<aDiv.length;i++){
+                aDiv[i].className = "";
+            }
+            aDiv[this.index].className = "selected";
+        }
+        function ChangeBigImg(){
+            for(var i=0;i<aDiv_big.length;i++){
+                aDiv_big[i].index = i;
+                aDiv_big[i].onclick = function(){
+                    nowIndex = this.index;
+                    for(var i=0;i<aDiv_big.length;i++){
+                        aDiv_big[i].className = "";
+                    }
+                    aDiv-big[nowIndex].className = "selected";
+                };
+
+
+        }
+
+
+    </script>
+</body>
+</html>
